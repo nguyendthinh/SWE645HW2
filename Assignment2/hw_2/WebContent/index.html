@@ -1,0 +1,444 @@
+
+<html>
+	<head>
+		<meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Assignment 1</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="css\bootstrap.min.css">
+		
+		<style>
+		hr
+		{
+			color:yellow;
+			background:yellow;
+		}
+		.error
+		{
+			color:red;
+		}
+		
+		i:hover {
+  color: purple;
+}
+
+i:active {
+  color: yellow;
+} 
+i {
+letter-spacing: 1px;
+  text-decoration: underline ;
+  color:red
+}
+		</style>
+		
+	</head>
+	
+	<body onload="checkCookie()">
+		<div class="container ">
+		<h2 class="bg-success text-center p-2 text-white" > CS Survey</h2>
+		<h2 id="grting" class="bg-primary text-center p-2 text-white"></h2>
+		<h6  class="bg-primary text-center p-2 text-white"><i onclick="resetusername()" >Click here</i> if you are not <span id="back">Caleb<span></h6>
+		
+		
+			<form style="background:#f1f3f4;padding:10px" method="post" action="" id="myform"> 
+				<div class="row">
+					
+					<div class="col-sm-6">
+						<label>First Name</label>
+						<input type="text" name="fname" id="fname" class="form-control" required />
+					</div>
+					<div class="col-sm-6">
+						<label>Last Name</label>
+						<input type="text" name="lname" id="lname" class="form-control" required />
+					</div>
+					<div class="col-sm-6">
+						<label>Mobile</label>
+						<input type="number" name="mobile" id="mobile" class="form-control" required />
+					</div>
+					<div class="col-sm-6">
+						<label>Email</label>
+						<input type="email" name="email" id="email" class="form-control" required />
+					</div>
+					<div class="col-sm-6">
+						<label>Website</label>
+						<input type="text" name="website" id="website" class="form-control" required />
+					</div>
+					<div class="col-sm-6">
+						<label>DOB</label>
+						<input type="date" name="dob" id="dob" class="form-control" required />
+					</div>
+					<div class="col-sm-12"><br/>
+						<hr/>
+					</div>
+					<div class="col-sm-6">
+						<label>Street Address</label>
+							<textarea class="form-control" id="saddress" required name="saddress"></textarea>
+					</div>
+					<div class="col-sm-6">
+						<label>Zip Code <span class="text-danger">zipcode(22312,22030,22301,20148)</span></label>
+						<input type="text" name="zipcode" id="zipcode" class="form-control" required />
+						<label class="text-danger" id="invalidzip"></label>
+					</div>
+					<div class="col-sm-6">
+						<label>City</label>
+						<input type="text" name="city" id="city" class="form-control" required readonly />
+					</div>
+					<div class="col-sm-6">
+						<label>State</label>
+						<input type="text" name="state" id="state" class="form-control" readonly required />
+					</div>
+					<div class="col-sm-12"><br/><h3 class="p-1 bg-warning text-center  text-white"> When did you graduate from your high school?</h3> 
+					</div>
+					<div class="col-sm-6">
+						<label>Month & year</label>
+						<input type="month" name="month" id="month" class="form-control" required />
+					</div>
+					<div class="col-sm-12"><br/><h3 class="p-1 bg-warning text-center  text-white"> What did you like about your visit?</h3> 
+					</div>
+					<div class="col-sm-6" id="visit">
+						<label>Select all those that apply</label><br/>
+						<input type="checkbox" name="student[]" id="student"  value="student" /> Students
+						<input type="checkbox" name="student[]" id="location"  value="location" /> Location<br/>
+						<input type="checkbox" name="student[]" id="campus"  value="campus" />    Campus
+						<input type="checkbox" name="student[]" id="activities"  value="activities" /> Activities<br/>
+						<input type="checkbox" name="student[]" id="sports"  value="sports" />   Sports
+						<input type="checkbox" name="student[]" id="dorms"  value="dorms" /> Dorms<br/>
+						<span class="text-danger" id="spn"></span>
+					</div>
+					<div class="col-sm-12"><br/><h3 class="p-1 bg-warning text-center  text-white"> What so interesting in the university?</h3> 
+					</div>
+					<div class="col-sm-6" id="redio">
+						
+						<input type="radio" name="choice" id="television" required value="television" /> Students
+						<input type="radio" name="choice" id="friends" value="friends" /> Location<br/>
+						<input type="radio" name="choice" id="internet" value="internet" />    Campus
+						<input type="radio" name="choice" id="buildings" value="buildings" /> Activities<br/>
+						<span class="text-danger" id="spn1"></span>
+					</div>
+					<div class="col-sm-12"><br/><h3 class="p-1 bg-warning text-center  text-white"> How likely do you recommend George Mason To other students?</h3> 
+					</div>
+					<div class="col-sm-6">
+						<label>Choose form the following</label>
+						<select class="form-control" id="lst" name="choose" required>
+							<option value="">--select--</option>
+							<option value="Very Likely">Very Likely</option>
+							<option value="b">Likely</option>
+							<option value="c">Not Likely</option>
+						</select>
+					</div>
+					
+					<div class="col-sm-6">
+						<label>Enter 10 digits separated by (,) to enter into the raffle ticket contest. (numbers should be from 1 to 100) </label>
+						<input type="text"  id="data" class="form-control" placeholder="1,2,3,4,...........,99"/><span class="text-danger" id="err"></span><br/>
+						<label class="text-danger">Tickets - </label><input style="border:none;background:#f1f3f4;" id="Display" /><br/>
+						
+					</div>
+					<div class="col-sm-12 text-center"><br/>
+						<button type="submit" onclick="getFormData()" class="btn btn-lg btn-primary">Submit</button>
+						<button type="reset" class="btn btn-lg btn-warning">Reset</button>
+						<button type="button" onclick="resetusername()" class="btn btn-lg btn-success">Reset your name</button>
+					</div>
+					<div id="data"></div>
+				</div>
+			</form>
+		</div>
+	  <script src="js/bootstrap.min.js"></script>
+	  <script src="js/jquery-3.5.0.min.js"></script>
+	  
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+	  <script>
+	 //show current time
+		var today = new Date();
+		var curHr = today.getHours();
+		var greetings;
+		if (curHr < 12) {
+		  var greetings="Good Morning!";
+		} else if (curHr < 18) {
+		  var greetings="Good Afternoon!";
+		} else {
+		  var greetings="Good Evening!";
+		}
+		
+		//var fname=document.getElementById('fname').value;
+		
+		//function set cookies
+		$("#fname").keypress(function(e){
+				if(e.which<65&&e.which!=32&&e.which!=46)
+				{
+					e.preventDefault();
+				}
+				if(e.which>90&&e.which<97&&e.which>122)
+				{
+					e.preventDefault();
+				}
+			});
+			$("#lname").keypress(function(e){
+				if(e.which<65&&e.which!=32&&e.which!=46)
+				{
+					e.preventDefault();
+				}
+				if(e.which>90&&e.which<97&&e.which>122)
+				{
+					e.preventDefault();
+				}
+			});
+		function setCookie(cname, cvalue, exdays) {
+			  var fname=document.getElementById('fname').value;
+				var lname=document.getElementById('lname').value;
+			  var d = new Date();
+			  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+			  var expires = "expires="+d.toUTCString();
+			  document.cookie = cname + "=" + cvalue + ";" + expires +";lname="+lname+ ";path=/";
+			  window.location.reload();
+			  return true;
+			  
+			}
+			
+			// function to get cookies
+			
+			function getCookie(cname) {
+			  var name = cname + "=";
+			  var ca = document.cookie.split(';');
+			  for(var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') {
+				  c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+				  return c.substring(name.length, c.length);
+				}
+			  }
+			  return "";
+			}
+			
+			//function to check cookies
+			
+			function checkCookie() {
+			 var user = getCookie("username"); 
+			if (user != "") {
+				document.getElementById('grting').innerHTML=greetings+" "+user+" Welcome to SWE645 Survey";
+				document.getElementById('back').innerHTML=" "+user+".";
+				alert(greetings+" "+user+" Welcome to SWE645 Survey");
+				
+			  } else {
+			  document.getElementById('grting').innerHTML=greetings+" "+" Welcome to SWE645 Survey";
+			  document.getElementById('back').innerHTML=" "+user+"Caleb.";
+				user1 = prompt("Please enter your name:", "");
+				if (user1 != "" && user1 != null) {
+				  setCookie("username", user1, 1);
+				 
+				}
+			  }
+			}
+			function getFormData()
+			{
+				var fname=document.getElementById('fname').value;
+				var lname=document.getElementById('lname').value;
+				var mobile=document.getElementById('mobile').value;
+				var email=document.getElementById('email').value;
+				var website=document.getElementById('website').value;
+				var dob=document.getElementById('dob').value;
+				var saddress=document.getElementById('saddress').value;
+				var zipcode=document.getElementById('zipcode').value;
+				var city=document.getElementById('city').value;
+				var state=document.getElementById('state').value;
+				var month=document.getElementById('month').value;
+				var invalidzip=document.getElementById('month').value;
+				var check_checkbox=false;
+				//Create an Array.
+				var selected = new Array();
+				
+				
+				//Reference the Table.
+				var visit = document.getElementById("visit");
+		 
+				//Reference all the CheckBoxes in Table.
+				var chks = visit.getElementsByTagName("INPUT");
+		 
+				// Loop and push the checked CheckBox value in Array.
+				for (var i = 0; i < chks.length; i++) {
+					if (chks[i].checked) {
+						check_checkbox=true;
+						selected.push(chks[i].value);
+					}
+				}
+				if(!check_checkbox)
+				{check_checkbox=false;
+					$("#spn").text("Please select at least 1 visit.");
+					
+				}
+				//get radio button value 
+				var redio = document.getElementById("redio");
+				 var radios = document.getElementsByName("choice");
+					var radio_check=false;
+				 for (var i = 0, len = radios.length; i < len; i++) {
+					  if (radios[i].checked) {
+					  radio_check=ture;
+						  var radio=radios[i].value;
+					  }
+				 }
+					// if(!radio_check)
+					 // {
+					//	$("#spn1").text("please select at University");
+					//  }
+				//get last value				 }
+				var lst=document.getElementById('lst').value;
+				var data="<h3>Fname - </h3>"+fname+" <br/> Lname= "+lname;
+				$("#data").html(data);
+				
+			//	if(!check_checkbox){
+				//alert("please select at University");
+				//}else{
+				//alert("Thank you submitting the survey");
+				//window.location.reload();
+				//}
+			}
+			
+			
+			
+			function resetusername() {
+			 var user = getCookie("username"); 
+			 <!-- var  fname = getCookie("fname"); -->
+				//user = prompt("Your current name is: "+user+", please enter new name");
+				user = prompt(" please enter new name");
+				  
+				if (user != "" && user != null) {
+				 if(setCookie("username", user, 1))
+				  {
+					checkCookie();
+				  }
+				
+			  }
+			}
+	  </script>
+	  
+	  <script>
+			  
+	  var jasaonData={"zipcodes":[
+{
+"zip": "22312",
+"city": "Alexandria",
+"state":"VA"
+},
+{
+"zip": "22030",
+"city": "Fairfax",
+"state":"VA"
+},
+{
+"zip": "22301",
+"city": "Rockville",
+"state":"MD"
+},
+{
+"zip": "20148",
+"city": "Ashburn",
+"state":"VA"
+}
+]
+	  	  
+	  }	  
+	  
+		
+		
+		  jQuery(document).ready(function () {
+		  
+		  //$("#myform").validate();	
+		
+				$("#zipcode").keyup(function(){ 
+				var zip=$("#zipcode").val();
+				var check=false;
+				
+				$.each(jasaonData.zipcodes,function(key,value){
+				//document.write(value.state);
+				if(value.zip==zip)
+				{  console.log("zip");
+				check=true;
+					$("#invalidzip").text("");
+					$("#city").val(value.city);
+					$("#state").val(value.state);
+					$("#ziperr").text("Zip code is matched"); 
+				
+				}
+				else
+				{	if(check){
+					$("#invalidzip").text("");
+				}else
+				  { console.log("nozip");
+				$("#invalidzip").text("Invalid Zip code");
+					//$("#ziperr").text("Zip code is not matched in our record");
+				}
+				}
+				
+				}) ;
+				
+				
+				
+		 });
+	
+      jQuery("#data").keypress(function (e) {
+	  
+       			var d=$("#data").val();
+				var code=e.keyCode;
+			var arr = d.split(',');
+			var avg=0;
+			var max=arr[0];
+		 if ((code < 48 || code > 57) & code != 8 && code != 44 && code !=46) {
+			  $("#data").prop("readonly", true);
+			  $("#err").text("Please enter atleast 10 digits seperated by (,) ");
+			  }else{
+			   $("#data").prop("readonly", false);
+			 if(arr.length<=10 )
+			{
+		 
+				for(var i=0;i<arr.length;i++)
+				{
+					if(arr[i]!="")
+					{
+					 // console.log("arry",arr[i]);
+						avg+=parseInt(arr[i]);
+					//	 console.log("sum",avg);
+					  if (parseInt(arr[i]) > max) 
+							max = arr[i]; 
+					}
+				}
+				//alert(max);
+				lnth=(arr.length);
+				avg1=parseInt(avg)/parseInt(lnth);
+				//  console.log("length",lnth);
+				//  console.log("average",avg1);
+				  if (avg1 > 80){ 
+				  $("#Display").val("You won free tickets");
+				  $("#err").css("display","none");
+		 		  }else{ 
+				 $("#Display").val("Sorry, Try again Later"); 
+				 $("#err").css("display","none");
+		 		  } 
+				//$("#err").css("display","none");
+				
+			}else
+			{
+			$("#data").prop("readonly", true);
+			}
+			  }
+			 
+		//	console.log(arr);
+			
+      });
+    });
+	  
+		
+		
+    </script> 
+				<footer 
+					class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+                                <a href="https://www2.gmu.edu/">
+                                <img alt="GMU" src="GMURGB.jpg"
+                                        width="200" height="150">
+                                </a>
+                     </footer>
+	</body>
+</html>
