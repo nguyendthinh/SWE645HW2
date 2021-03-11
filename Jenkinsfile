@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_PASS = 'Admin123$'
+        DOCKERHUB_PASS = credentials('docker-pass')
     }
     stages {
         stage('Building the Student Survey Image') {
@@ -9,7 +9,7 @@ pipeline {
                 script {
                     checkout scm
                     sh 'rm -rf *.war'
-                    sh 'war -cvf HW_2.war -C WebContent/ .'
+                    sh 'jar -cvf HW_2.war -C WebContent/ .'
                     sh "docker login -u risshie -p ${DOCKERHUB_PASS}"
                     def customImage = docker.build("risshie/swe642:${BUILD_TIMESTAMP}")
                 }
