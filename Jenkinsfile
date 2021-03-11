@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_PASS = credentials('docker-pass')
+        DOCKERHUB_PASS = 'Admin123$'
     }
     stages {
         stage('Building the Student Survey Image') {
