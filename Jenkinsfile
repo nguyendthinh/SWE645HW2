@@ -10,7 +10,7 @@ pipeline {
                     checkout scm
                     sh 'rm -rf *.war'
                     sh 'jar -cvf HW_2.war -C Assignment2/hw_2/WebContent/ .'
-                    sh "docker login -u risshie -p Admin123$
+                    sh 'docker login -u risshie -p Admin123$'
                     def customImage = docker.build("risshie/swe642:${BUILD_TIMESTAMP}")
                 }
             }
