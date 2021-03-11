@@ -10,6 +10,7 @@ pipeline {
                     checkout scm
                     sh 'rm -rf *.war'
                     sh 'jar -cvf HW_2.war -C Assignment2/hw_2/WebContent/ .'
+                    echo 'whoami'
                     sh "docker login -u risshie -p ${DOCKERHUB_PASS}"
                     def customImage = docker.build("risshie/swe642:${BUILD_TIMESTAMP}")
                 }
