@@ -12,7 +12,7 @@ pipeline {
                     sh 'jar -cvf HW_2.war -C Assignment2/hw_2/WebContent/ .'
                     sh 'whoami'
                     sh 'pwd'
-                    sh "docker pull nginx"
+                    sh "sudo docker pull nginx"
                     def customImage = docker.build("risshie/swe642:${BUILD_TIMESTAMP}")
                 }
             }
