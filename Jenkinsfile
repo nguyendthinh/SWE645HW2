@@ -10,13 +10,15 @@ pipeline {
                     checkout scm
                     sh 'rm -rf *.war'
                     sh 'jar -cvf HW_2.war -C Assignment2/hw_2/WebContent/ .'
+                    sh "docker login -u risshie -p ${DOCKERHUB_PASS}"
+                    def customImage = docker.build("risshie/swe642:${BUILD_TIMESTAMP}")
                 }
             }
         }
         stage('Pushing Image to DockerHub') {
             steps {
                 script {
-                    sh 'docker pull nginx'
+                    sh 'docker push risshie/swe642:${BUILD_TIMESTAMP}'
                 }
             }
         }
