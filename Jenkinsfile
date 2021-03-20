@@ -18,7 +18,7 @@ pipeline {
         stage('Pushing Image to DockerHub') {
             steps {
                 script {
-                    sh 'docker push risshie/swe642:${BUILD_TIMESTAMP}'
+                    sh 'docker push risshie/swe642:latest'
                 }
             }
         }
