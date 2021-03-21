@@ -25,7 +25,9 @@ pipeline {
         }
         stage('Deploying to Rancher as single pod') {
             steps {
+                echo "Hello there!"
                 sh 'kubectl set image deployment/survey-server swe642=risshie/swe642:${LATEST_BUILD_NAME}'
+                echo "hello again"
             }
         }
 
