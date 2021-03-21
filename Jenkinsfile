@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Deploying to Rancher as single pod') {
             steps {
-                sh 'kubectl set image deployment/swe-cluster swe-cluster=risshie/swe642:${LATEST_BUILD_NAME}'
+                sh 'kubectl set image deployment/survey-server swe642=risshie/swe642:${LATEST_BUILD_NAME}'
             }
         }
         stage("Deploying to Rancher as with load balancer") {
