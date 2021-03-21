@@ -5,7 +5,7 @@ pipeline {
         LATEST_BUILD_NAME = "${BUILD_TIMESTAMP}"
     }
     stages {
-        stage('Building the Student Survey Image') {
+        stage('Building the Survey Image') {
             steps {
                 script {
                     checkout scm
@@ -23,7 +23,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploying to Rancher as single pod') {
+        stage('Deploying to Rancher') {
             steps {
                 sh 'kubectl set image deployment/survey-server swe642=risshie/swe642:${LATEST_BUILD_NAME}'
             }
