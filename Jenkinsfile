@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_PASS = credentials('docker-pass')
-        LATEST_BUILD_NAME = "hw2v5"
+        LATEST_BUILD_NAME = "${BUILD_TIMESTAMP}"
     }
     stages {
         stage('Building the Student Survey Image') {
