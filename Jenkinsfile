@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_PASS = credentials('docker-pass')
-        LATEST_BUILD_NAME = "hw2v2"
+        LATEST_BUILD_NAME = "hw2v3"
     }
     stages {
         stage('Building the Student Survey Image') {
@@ -26,11 +26,6 @@ pipeline {
         stage('Deploying to Rancher as single pod') {
             steps {
                 sh 'kubectl set image deployment/survey-server swe642=risshie/swe642:${LATEST_BUILD_NAME}'
-            }
-        }
-        stage("Deploying to Rancher as with load balancer") {
-            steps {
-                sh 'kubectl set image deployment/survey-server survey-server=risshie/swe642:${LATEST_BUILD_NAME} -n jenkins-pipeline'
             }
         }
 
