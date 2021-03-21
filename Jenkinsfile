@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Deploying to Rancher as single pod') {
             steps {
-                sh 'kubectl set image deployment/survey-server survey-server=risshie/swe642:${LATEST_BUILD_NAME} -n jenkins-pipeline'
+                sh 'kubectl set image deployment/swe-cluster swe-cluster=risshie/swe642:${LATEST_BUILD_NAME} -n jenkins-pipeline'
             }
         }
         stage("Deploying to Rancher as with load balancer") {
