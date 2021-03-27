@@ -33,7 +33,7 @@ metadata:
         f:type: {}
     manager: kubectl-expose
     operation: Update
-    time: "2021-03-11T23:53:42Z"
+    time: '2021-03-27T03:09:38Z'
   - apiVersion: v1
     fieldsType: FieldsV1
     fieldsV1:
@@ -46,7 +46,7 @@ metadata:
           f:ingress: {}
     manager: kube-controller-manager
     operation: Update
-    time: "2021-03-11T23:54:22Z"
+    time: '2021-03-27T03:10:12Z'
   - apiVersion: v1
     fieldsType: FieldsV1
     fieldsV1:
@@ -55,17 +55,17 @@ metadata:
           f:field.cattle.io/publicEndpoints: {}
     manager: rancher
     operation: Update
-    time: "2021-03-11T23:54:22Z"
+    time: '2021-03-27T03:10:12Z'
   name: survey-server
   namespace: default
-  resourceVersion: "4554"
+  resourceVersion: '8809175'
   selfLink: /api/v1/namespaces/default/services/survey-server
   uid: be03d59d-a104-4f09-b3d8-b7573e2d7d95
 spec:
   clusterIP: 10.16.5.158
   externalTrafficPolicy: Cluster
   ports:
-  - nodePort: 30784
+  - nodePort: 32696
     port: 80
     protocol: TCP
     targetPort: 8080
