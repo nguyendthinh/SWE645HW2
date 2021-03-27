@@ -60,9 +60,9 @@ metadata:
   namespace: default
   resourceVersion: "4554"
   selfLink: /api/v1/namespaces/default/services/survey-server
-  uid: 34b45e6b-a84f-42c7-b5e1-73ff98866827
+  uid: be03d59d-a104-4f09-b3d8-b7573e2d7d95
 spec:
-  clusterIP: 10.16.7.221
+  clusterIP: 10.16.5.158
   externalTrafficPolicy: Cluster
   ports:
   - nodePort: 30784
