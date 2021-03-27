@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <!--<title>Assignment-2</title>-->
-        <title> Assignment 23A Testing </title>
+        <title> Assignment Testing 2 </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css\bootstrap.min.css">
@@ -38,7 +38,7 @@ letter-spacing: 1px;
 	
 	<body onload="checkCookie()">
 		<div class="container ">
-		<h2 class="bg-success text-center p-2 text-white" > CS Survey</h2>
+		<h2 class="bg-success text-center p-2 text-white" > CS Survey (Testing) </h2>
 		<h2 id="grting" class="bg-primary text-center p-2 text-white"></h2>
 		<h6  class="bg-primary text-center p-2 text-white"><i onclick="resetusername()" >Click here</i> if you are not <span id="back">Caleb<span></h6>
 		
@@ -156,11 +156,11 @@ letter-spacing: 1px;
 		var curHr = today.getHours();
 		var greetings;
 		if (curHr < 12) {
-		  var greetings="Good Morning!";
+		  var greetings="Good Morning, ";
 		} else if (curHr < 18) {
-		  var greetings="Good Afternoon!";
+		  var greetings="Good Afternoon, ";
 		} else {
-		  var greetings="Hello!";
+		  var greetings="Hello, ";
 		}
 		
 		//var fname=document.getElementById('fname').value;
@@ -220,12 +220,12 @@ letter-spacing: 1px;
 			function checkCookie() {
 			 var user = getCookie("username"); 
 			if (user != "") {
-				document.getElementById('grting').innerHTML=greetings+" "+user+" ***Welcome to SWE-645 Survey***";
+				document.getElementById('grting').innerHTML=greetings+" "+user+" ***Welcome to SWE 645 Survey***";
 				document.getElementById('back').innerHTML=" "+user+".";
 				alert(greetings+" "+user+" Welcome to SWE645 Survey");
 				
 			  } else {
-			  document.getElementById('grting').innerHTML=greetings+" "+" Welcome to SWE645 Survey";
+			  document.getElementById('grting').innerHTML=greetings+" "+" Welcome to SWE 645 Survey";
 			  document.getElementById('back').innerHTML=" "+user+"Caleb.";
 				user1 = prompt("Please enter your name:", "");
 				if (user1 != "" && user1 != null) {
